@@ -1,0 +1,12 @@
+{
+  "name": "claude-api-cost-compare",
+  "owner": { "name": "shezis" },
+  "description": "Claude Code mods for tracking what your sessions cost across LLM APIs",
+  "plugins": [
+    {
+      "name": "api-cost-compare",
+      "source": "./",
+      "description": "Live pane showing what your Claude Code session would cost on the Claude, OpenAI, DeepSeek, GLM and Kimi APIs"
+    }
+  ]
+}
