@@ -141,6 +141,8 @@ describe('pane', () => {
         expect(text.includes(name)).toBe(true)
       }
       expect(text.includes('Prices as of 2026-10-11 (built-in)')).toBe(true)
+      // The terminal adds its own ": " after a Select's label.
+      if (surface === 'terminal') expect((await ui.find({ key: 'pick-claude' }))?.props.label).toBe('Model')
       expect((await ui.find({ key: 'cache' }))?.props.label).toBe('Caching: on')
       await ui.press({ key: 'cache' })
       expect((await ui.find({ key: 'cache' }))?.props.label).toBe('Caching: off')

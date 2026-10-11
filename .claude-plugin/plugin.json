@@ -1,6 +1,6 @@
 {
   "name": "api-cost-compare",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Live pane showing what this session would cost on the Claude, OpenAI, DeepSeek, GLM and Kimi APIs",
   "author": { "name": "shezis", "url": "https://github.com/shezis" },
   "homepage": "https://github.com/shezis/claude-api-cost-compare",

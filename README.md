@@ -7,35 +7,10 @@ A [Claude Code](https://claude.com/claude-code) mod that adds a `/api-cost` pane
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Claude Code mod](https://img.shields.io/badge/Claude%20Code-mod-d97757)
 
-```
- What this session would cost on each API
- 54 responses · 8.94M prompt tokens (96% cache hits) · 46.2K output
- Models used: claude-opus-5-5
- Claude Code's own /cost ledger: $4.98
-
- Claude API                                         $4.81
- ████████████████████████████████████████████████
- Model: [ As used (each model at its own rate) ▾ ]
-
- OpenAI API                             $1.98 2.4× cheaper
- ████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░
- Model: [ GPT-6.1 Sol · $2 in / $10 out ▾ ]
-
- DeepSeek API                           $0.91 5.3× cheaper
- █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
- Model: [ V4-Pro (peak) · $1.32 in / $3.96 out ▾ ]
-
- GLM API (Z.ai)                         $2.76 1.7× cheaper
- ███████████████████████████░░░░░░░░░░░░░░░░░░░░░
- Model: [ GLM-5.3 · $1.4 in / $4.4 out ▾ ]
-
- Kimi API (Moonshot)                    $4.86 1.0× pricier
- ████████████████████████████████████████████████
- Model: [ Kimi K3 · $3 in / $15 out ▾ ]
-
- [ Caching: on ] [ Cache writes: 1-hour ] [ Rescan ] [ Update prices ]
- Prices as of 2026-10-11 (live, fetched 3h ago)
-```
+<p align="center">
+  <img src="docs/screenshot.png" width="385" alt="The API cost pane in the Claude desktop app: a 120-response session that cost $11.57 on the Claude API, compared with $7.37 on OpenAI GPT-6.1 Sol, $0.44 on DeepSeek V4.1-Flash, $1.00 on GLM-5.3-Flash and $5.57 on Kimi K2.6">
+</p>
+<p align="center"><sub>A real 120-response Opus 5.5 session, in the Claude desktop app.</sub></p>
 
 ## Features
 

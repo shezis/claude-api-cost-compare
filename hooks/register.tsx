@@ -314,6 +314,7 @@ export const register: Register = (on, config) => {
     const { Box, Text, Button } = elements
     // Mobile has no Select: a Button there cycles through the models.
     const Select = 'Select' in elements ? elements.Select : undefined
+    const isTerminal = e.surface === 'terminal'
     const choose = async (provider: string, value: string) => {
       await update($, picks, prev => ({ ...prev, [provider]: value }))
       await refreshStatus($)
@@ -364,6 +365,7 @@ export const register: Register = (on, config) => {
             ...(p.isClaude ? [{ value: AS_USED, label: 'As used (each model at its own rate)' }] : []),
             ...p.models.map(m => ({ value: m.id, label: `${m.label} · $${m.input} in / $${m.output} out` })),
           ]
+          const color = p.isClaude ? 'claude' : 'suggestion'
           return (
             <Box key={p.id} flexDirection="column" marginTop={1}>
               <Box flexDirection="row" justifyContent="space-between">
@@ -377,11 +379,18 @@ export const register: Register = (on, config) => {
                   )}
                 </Text>
               </Box>
-              <Text color={p.isClaude ? 'claude' : 'suggestion'}>{bar(cost / max, barWidth)}</Text>
+              {isTerminal ? (
+                <Text color={color}>{bar(cost / max, barWidth)}</Text>
+              ) : (
+                // Proportional fonts draw █ much wider than a cell: a filled Box scales instead.
+                <Box flexDirection="row" width="100%" height={1}>
+                  <Box width={`${Math.max(1, Math.round((cost / max) * 100))}%`} height={1} backgroundColor={color} />
+                </Box>
+              )}
               {Select ? (
                 <Select
                   key={`pick-${p.id}`}
-                  label="Model: "
+                  label={isTerminal ? 'Model' : 'Model:'}
                   options={choices}
                   value={choices.some(c => c.value === pick) ? pick : choices[0]!.value}
                   onSelect={(value: string) => choose(p.id, value)}
